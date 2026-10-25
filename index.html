@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Rawan — bencana apa saja yang pernah melanda daerahmu?</title>
+    <meta
+      name="description"
+      content="23 ribu bencana alam di 514 kabupaten/kota Indonesia, 2010–2019, dari Data Informasi Bencana Indonesia (BNPB). Banjir, longsor, puting beliung, kekeringan, karhutla, gempa, tsunami, erupsi: pilih jenisnya, cek daerahmu."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://rawan.raffstw.my.id/" />
+    <meta property="og:title" content="Rawan — bencana apa saja yang pernah melanda daerahmu?" />
+    <meta property="og:description" content="Banjir paling sering datang, gempa paling banyak merenggut nyawa. Cek catatan bencana di daerahmu, 2010–2019." />
+    <meta property="og:image" content="https://rawan.raffstw.my.id/og.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="canonical" href="https://rawan.raffstw.my.id/" />
+    <meta name="theme-color" content="#ff6a13" />
+    <link rel="icon" href="/ikon.svg" type="image/svg+xml" />
+  </head>
+  <body>
+    <div class="rompi">
+      <header class="kepala">
+        <a class="merek" href="#">Rawan</a>
+        <nav aria-label="Bagian halaman">
+          <a href="#peta">Peta</a>
+          <a href="#mematikan">Paling mematikan</a>
+          <a href="#musim">Musim</a>
+          <a href="#metode">Metode</a>
+        </nav>
+      </header>
+
+      <section class="pembuka" aria-labelledby="judul">
+        <div class="pembuka-kiri">
+        <p class="label" id="label-pembuka">Bencana alam di 514 kabupaten/kota, 2010–2019</p>
+        <h1 id="judul">Banjir paling sering datang. Gempa paling banyak merenggut nyawa.</h1>
+        <p class="lead" id="lead">Cek bencana apa saja yang pernah tercatat di daerahmu.</p>
+        <div class="cari" role="search">
+          <label class="tersembunyi" for="kotak-cari">Cari kabupaten atau kota</label>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5" /><path d="m15.5 15.5 5 5" /></svg>
+          <input
+            id="kotak-cari"
+            type="search"
+            placeholder="Ketik nama kabupaten/kota"
+            autocomplete="off"
+            role="combobox"
+            aria-expanded="false"
+            aria-controls="saran"
+            aria-autocomplete="list"
+          />
+          <ul class="saran" id="saran" role="listbox" hidden></ul>
+        </div>
+        <ul class="pintasan" id="pintasan" aria-label="Contoh daerah"></ul>
+        </div>
+        <aside class="papan-jenis" aria-labelledby="judul-papan">
+          <p class="judul-grafik" id="judul-papan">Kejadian per jenis, seluruh Indonesia</p>
+          <ol id="papan-jenis"></ol>
+        </aside>
+      </section>
+      <div class="garis-reflektif" aria-hidden="true"><i></i><i></i></div>
+    </div>
+
+    <main>
+      <article class="daerah" id="daerah" hidden aria-live="polite"></article>
+
+      <section class="bagian" id="peta" aria-labelledby="judul-peta">
+        <h2 id="judul-peta">Di mana saja tercatat</h2>
+        <div class="pilih-jenis" id="pilih-jenis" role="radiogroup" aria-label="Jenis bencana"></div>
+        <p class="ringkas-peta" id="ringkas-peta"></p>
+        <div class="peta-dan-peringkat">
+          <div>
+            <ul class="legenda" id="legenda" aria-label="Jumlah kejadian 2010–2019"></ul>
+            <div class="wadah-peta" id="wadah-peta"></div>
+          </div>
+          <div class="peringkat">
+            <p class="judul-grafik" id="judul-peringkat">Paling sering</p>
+            <ol id="peringkat"></ol>
+          </div>
+        </div>
+      </section>
+
+      <section class="bagian" id="mematikan" aria-labelledby="judul-mematikan">
+        <h2 id="judul-mematikan">Yang sering belum tentu yang mematikan</h2>
+        <p class="teks" id="teks-mematikan"></p>
+        <div class="dua-batang" id="dua-batang"></div>
+      </section>
+
+      <section class="bagian" id="musim" aria-labelledby="judul-musim">
+        <h2 id="judul-musim">Tiap bencana punya musimnya</h2>
+        <p class="teks" id="teks-musim"></p>
+        <div class="kisi-musim" id="kisi-musim"></div>
+      </section>
+
+      <section class="bagian" id="metode" aria-labelledby="judul-metode">
+        <h2 id="judul-metode">Dari mana angkanya</h2>
+        <div class="teks">
+          <p>
+            Data kejadian dari <a href="https://dibi.bnpb.go.id">Data Informasi Bencana Indonesia (DIBI)</a> milik BNPB, lewat salinan
+            yang dibagikan terbuka di <a href="https://www.desinventar.net/DesInventar/profiletab.jsp?countrycode=idn">DesInventar</a> (UNDRR).
+            Tiap baris adalah satu kejadian yang dilaporkan BPBD kabupaten/kota, lengkap dengan tanggal, jenis, korban, dan rumah rusak.
+          </p>
+          <p>
+            Yang ditampilkan hanya bencana alam: banjir (termasuk banjir yang disertai longsor), tanah longsor, puting beliung,
+            kekeringan, kebakaran hutan dan lahan, gelombang pasang dan abrasi, gempa dan tsunami, serta letusan gunung api.
+            Kebakaran gedung, kecelakaan transportasi, konflik, dan wabah tidak dihitung. Korban jiwa adalah meninggal ditambah hilang.
+          </p>
+          <p>
+            Rentangnya 2010–2019 karena pencatatan sebelum sekitar 2008 masih jarang, dan salinan terbuka ini berhenti di akhir 2019.
+            Data terbaru ada di dasbor DIBI, tetapi tidak tersedia untuk diunduh per kabupaten/kota.
+          </p>
+          <p>
+            Angka ini adalah jumlah kejadian yang <em>dilaporkan</em>, bukan ukuran besarnya bencana. Daerah dengan BPBD yang rajin
+            melapor, seperti banyak kabupaten di Jawa, tampak lebih sering terkena. Satu kebakaran hutan yang berlangsung berbulan-bulan
+            bisa tercatat sebagai satu kejadian. Bacalah peta sebagai catatan, bukan peringkat bahaya. Untuk risiko bencana resmi, lihat
+            <a href="https://inarisk.bnpb.go.id">InaRISK</a> BNPB.
+          </p>
+          <p>Batas wilayah dari <a href="https://www.geoboundaries.org">geoBoundaries</a> (BPS, OCHA). Kode wilayah BPS di data dicocokkan ke 514 kabupaten/kota saat ini. Kejadian di daerah yang dimekarkan setelah 2010 tercatat di daerah induknya sampai daerah barunya terbentuk.</p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="kaki">
+      <p>Dibikin sama <a href="https://www.raffstw.my.id">Rafi</a>. Kode dan skrip pengolah data terbuka di <a href="https://github.com/Reverseflash45/rawan">GitHub</a>.</p>
+    </footer>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

@@ -1,0 +1,7 @@
+node_modules/
+dist/
+.vercel
+.env*
+*.log
+data/mentah/
+__pycache__/

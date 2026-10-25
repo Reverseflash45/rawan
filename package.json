@@ -1,0 +1,27 @@
+{
+  "name": "rawan",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview",
+    "test": "vitest run",
+    "data": "python -I data/skrip/olah.py data/mentah/desinventar/DI_export_idn.xml data/kode_bps.json data/daerah.json public/data/kejadian.json"
+  },
+  "dependencies": {
+    "@fontsource-variable/sofia-sans": "^5.3.0",
+    "@fontsource/sofia-sans-extra-condensed": "^5.3.0",
+    "d3-geo": "^3.1.1",
+    "topojson-client": "^3.1.0"
+  },
+  "devDependencies": {
+    "@types/d3-geo": "^3.1.1",
+    "@types/node": "^26.6.5",
+    "@types/topojson-client": "^3.1.5",
+    "typescript": "~5.9",
+    "vite": "^8.3.5",
+    "vitest": "^5.0.5"
+  }
+}
