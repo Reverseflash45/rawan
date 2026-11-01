@@ -440,8 +440,30 @@ function simpanHash() {
 const awal = new URLSearchParams(location.hash.slice(1));
 const jenisAwal = JENIS.findIndex((j) => j.kode === awal.get("jenis"));
 gantiJenis(jenisAwal >= 0 ? jenisAwal : null, false);
-gambarMematikan();
-gambarMusim();
+
+// Dua bagian grafik di bawah layar pertama baru digambar saat hampir terlihat, supaya pembukaan halaman tidak macet di HP.
+const tampak = new Set<() => void>();
+const bilaTampak = (gambar: () => void) => {
+  if (tampak.has(gambar)) gambar();
+};
+function amati(id: string, gambar: () => void) {
+  const mulai = () => {
+    tampak.add(gambar);
+    gambar();
+  };
+  if (!("IntersectionObserver" in window)) return mulai();
+  const io = new IntersectionObserver(
+    (isi) => {
+      if (!isi.some((e) => e.isIntersecting)) return;
+      io.disconnect();
+      mulai();
+    },
+    { rootMargin: "250px 0px" },
+  );
+  io.observe($(id));
+}
+amati("mematikan", gambarMematikan);
+amati("musim", gambarMusim);
 const daerahAwal = awal.get("daerah");
 if (daerahAwal && daerahDari.has(daerahAwal)) pilihDaerah(daerahAwal, false);
 
@@ -452,8 +474,8 @@ window.addEventListener("resize", () => {
   lebarLalu = window.innerWidth;
   clearTimeout(jedaUkur);
   jedaUkur = window.setTimeout(() => {
-    gambarMusim();
-    gambarMematikan();
+    bilaTampak(gambarMusim);
+    bilaTampak(gambarMematikan);
     gambarKartu();
   }, 150);
 });
