@@ -282,16 +282,7 @@ kotak.addEventListener("blur", () => {
   kotak.setAttribute("aria-expanded", "false");
 });
 
-const PINTASAN = ["kab-bogor", "kota-semarang", "kab-bandung", "kota-palu", "kab-banjarnegara", "kab-ogan-komering-ilir"];
-$("pintasan").replaceChildren(
-  ...PINTASAN.filter((id) => daerahDari.has(id)).map((id) => {
-    const li = document.createElement("li");
-    const b = Object.assign(document.createElement("button"), { type: "button", textContent: daerahDari.get(id)!.nama });
-    b.dataset.pilih = id;
-    li.append(b);
-    return li;
-  }),
-);
+// Tombol pintasan ditulis langsung di index.html supaya tidak menggeser tata letak saat dimuat.
 $("pintasan").addEventListener("click", (e) => {
   const id = (e.target as HTMLElement).closest<HTMLElement>("[data-pilih]")?.dataset.pilih;
   if (id) pilihDaerah(id, true);

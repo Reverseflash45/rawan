@@ -19,6 +19,8 @@
     <link rel="canonical" href="https://rawan.raffstw.my.id/" />
     <meta name="theme-color" content="#ff6a13" />
     <link rel="icon" href="/ikon.svg" type="image/svg+xml" />
+    <link rel="preload" href="/node_modules/@fontsource/sofia-sans-extra-condensed/files/sofia-sans-extra-condensed-latin-800-normal.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/node_modules/@fontsource-variable/sofia-sans/files/sofia-sans-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin />
   </head>
   <body>
     <div class="rompi">
@@ -36,7 +38,7 @@
         <div class="pembuka-kiri">
         <p class="label" id="label-pembuka">Bencana alam di 514 kabupaten/kota, 2010–2019</p>
         <h1 id="judul">Banjir paling sering datang. Gempa paling banyak merenggut nyawa.</h1>
-        <p class="lead" id="lead">Cek bencana apa saja yang pernah tercatat di daerahmu.</p>
+        <p class="lead" id="lead">23.453 bencana alam tercatat di 502 dari 514 kabupaten/kota, 2010–2019. Cek apa saja yang pernah melanda daerahmu.</p>
         <div class="cari" role="search">
           <label class="tersembunyi" for="kotak-cari">Cari kabupaten atau kota</label>
           <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5" /><path d="m15.5 15.5 5 5" /></svg>
@@ -52,7 +54,14 @@
           />
           <ul class="saran" id="saran" role="listbox" hidden></ul>
         </div>
-        <ul class="pintasan" id="pintasan" aria-label="Contoh daerah"></ul>
+        <ul class="pintasan" id="pintasan" aria-label="Contoh daerah">
+          <li><button type="button" data-pilih="kab-bogor">Kab. Bogor</button></li>
+          <li><button type="button" data-pilih="kota-semarang">Kota Semarang</button></li>
+          <li><button type="button" data-pilih="kab-bandung">Kab. Bandung</button></li>
+          <li><button type="button" data-pilih="kota-palu">Kota Palu</button></li>
+          <li><button type="button" data-pilih="kab-banjarnegara">Kab. Banjarnegara</button></li>
+          <li><button type="button" data-pilih="kab-ogan-komering-ilir">Kab. Ogan Komering Ilir</button></li>
+        </ul>
         </div>
         <aside class="papan-jenis" aria-labelledby="judul-papan">
           <p class="judul-grafik" id="judul-papan">Kejadian per jenis, seluruh Indonesia</p>

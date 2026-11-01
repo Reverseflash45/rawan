@@ -41,6 +41,20 @@ describe("data DIBI", () => {
     expect(jumlahPerDaerah(data, null).filter((n) => n > 0).length).toBe(502);
   });
 
+  it("kalimat pembuka di HTML sama dengan hasil hitung (mencegah teks bergeser saat dimuat)", () => {
+    const html = readFileSync(new URL("../index.html", import.meta.url), "utf8");
+    const ada = jumlahPerDaerah(data, null).filter((n) => n > 0).length;
+    const fmt = (n: number) => new Intl.NumberFormat("id-ID").format(n);
+    expect(html).toContain(`${fmt(data.k.length)} bencana alam tercatat di ${ada} dari ${fmt(data.daerah.length)} kabupaten/kota, ${data.awal}–${data.akhir}.`);
+  });
+
+  it("tombol pintasan di HTML menunjuk daerah yang ada", () => {
+    const html = readFileSync(new URL("../index.html", import.meta.url), "utf8");
+    const ids = [...html.matchAll(/data-pilih="([^"]+)"/g)].map((m) => m[1]);
+    expect(ids.length).toBeGreaterThan(0);
+    for (const id of ids) expect(data.daerah).toContain(id);
+  });
+
   it("setiap id peta ada di daftar daerah", () => {
     for (const g of peta.objects.daerah.geometries) expect(data.daerah).toContain(g.properties.id);
   });
