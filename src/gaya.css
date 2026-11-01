@@ -422,6 +422,23 @@ main {
   color: var(--redup);
 }
 
+.tetangga {
+  margin: 28px 0 0;
+  padding-top: 16px;
+  border-top: 1px solid var(--garis);
+  color: var(--redup);
+  font-size: 14px;
+  line-height: 1.6;
+  max-width: 70ch;
+}
+.tetangga a {
+  color: var(--tinta-2);
+  text-underline-offset: 3px;
+}
+.tetangga a:hover {
+  color: var(--tinta);
+}
+
 /* komposisi jenis: satu batang bertumpuk, celah 2px antarsegmen */
 .komposisi {
   display: flex;

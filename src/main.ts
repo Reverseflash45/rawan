@@ -23,6 +23,7 @@ import {
   ringkasDaerah,
 } from "./inti";
 import { buatPeta } from "./peta";
+import { htmlTetangga } from "./tetangga";
 
 const $ = <T extends HTMLElement = HTMLElement>(id: string) => document.getElementById(id) as T;
 const DAERAH = (daerahJson as { daerah: Daerah[] }).daerah;
@@ -340,6 +341,7 @@ function gambarKartu() {
   aksi.append(salin, lihat);
   kepala.append(judul, aksi);
   kartu.append(kepala);
+  const tetangga = htmlTetangga(terpilih, d.nama, "rawan");
 
   if (!r.total) {
     kartu.append(
@@ -348,6 +350,7 @@ function gambarKartu() {
         textContent: `Tidak ada bencana alam yang tercatat untuk ${d.nama} di DIBI selama ${RENTANG}. Bisa jadi memang aman, bisa juga laporannya belum masuk, terutama untuk daerah yang baru dimekarkan.`,
       }),
     );
+    kartu.insertAdjacentHTML("beforeend", tetangga);
     return;
   }
 
@@ -421,6 +424,7 @@ function gambarKartu() {
     }
     kanan.append(ol);
   }
+  kartu.insertAdjacentHTML("beforeend", tetangga);
 }
 
 /* ---------- tautan ---------- */
