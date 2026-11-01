@@ -1,6 +1,7 @@
 /* Peta 514 kabupaten/kota (SVG, d3-geo), diwarnai menurut kelas jumlah kejadian. */
 import type { Feature, FeatureCollection, Geometry } from "geojson";
-import { geoMercator, geoPath } from "d3-geo";
+import { geoMercator } from "d3-geo";
+import { jalurDatar, titikSudut } from "./datar";
 import { feature } from "topojson-client";
 import type { Topology } from "topojson-specification";
 import { sembunyikanTip, tampilkanTip } from "./grafik";
@@ -21,9 +22,9 @@ export function buatPeta(wadah: HTMLElement, topo: Topology, isiTip: (id: string
       [4, 4],
       [W - 4, H - 4],
     ],
-    fc,
+    titikSudut(fc),
   );
-  const jalur = geoPath(proyeksi);
+  const jalur = jalurDatar(proyeksi).digits(1);
   const NS = "http://www.w3.org/2000/svg";
   const svg = document.createElementNS(NS, "svg");
   svg.setAttribute("class", "peta");
