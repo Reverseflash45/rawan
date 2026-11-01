@@ -4,6 +4,8 @@ import { BULAN, BULAN_PANJANG, JENIS, angka, bulanPuncak, persen } from "./inti"
 
 const NS = "http://www.w3.org/2000/svg";
 export const warnaJenis = (j: number) => `var(--j${j})`;
+/** Slot palet yang kontrasnya lebih tinggi dengan tulisan dongker daripada putih. */
+const LABEL_GELAP = new Set([1, 2, 3, 4, 7]);
 
 /* ---------- tooltip bersama ---------- */
 const tip = document.createElement("div");
@@ -99,7 +101,8 @@ export function duaBatang(wadah: HTMLElement, data: { jenis: number; kejadian: n
       s.style.flex = String(v);
       s.style.background = warnaJenis(d.jenis);
       // label hanya bila segmennya cukup lebar untuk angkanya
-      if (v * lebar >= 54) s.append(h("em", "", persen(v)));
+      if (v * lebar >= 62) s.append(h("em", "", persen(v)));
+      s.style.setProperty("--label", LABEL_GELAP.has(d.jenis) ? "var(--dongker)" : "#fff");
       s.addEventListener("pointermove", (e) => tampilkanTip(e.clientX, e.clientY, JENIS[d.jenis].nama, ` ${persen(v)}, ${angka(mentah(d))} ${satuan}`));
       s.addEventListener("pointerleave", sembunyikanTip);
       bt.append(s);

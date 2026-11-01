@@ -614,14 +614,14 @@ svg.peta path.pilih {
 .batang-100 span:last-child {
   border-radius: 0 4px 4px 0;
 }
+/* teks besar (19px tebal) supaya cukup 3:1; warna tulisan dipilih per segmen di grafik.ts */
 .batang-100 em {
   font-style: normal;
   padding: 0 8px;
-  font-size: 14px;
-  font-weight: 700;
-  color: #fff;
+  font-size: 19px;
+  font-weight: 800;
+  color: var(--label, #fff);
   white-space: nowrap;
-  text-shadow: 0 1px 2px rgb(0 0 0 / 0.35);
 }
 .legenda-jenis {
   display: flex;
